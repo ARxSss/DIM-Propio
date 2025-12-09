@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'config/theme.dart';
 import 'providers/inventory_provider.dart';
-import 'screens/character_select_screen.dart';
+import 'screens/inventory_screen.dart';
 
 void main() {
   runApp(
@@ -23,9 +22,15 @@ class DestinyInventoryApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Guardian Manager',
-      theme: AppTheme.darkTheme,
-      home: const CharacterSelectScreen(),
+      
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: const Color(0xFF181C25),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.black,
+          elevation: 0,
+        ),
+      ),
+      home: const InventoryScreen(), 
     );
   }
 }
-

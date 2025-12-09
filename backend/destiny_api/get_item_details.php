@@ -2,14 +2,12 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json; charset=utf-8');
 
-$servername = "localhost"; $username = "root"; $password = ""; $dbname = "destinyinv";
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) die(json_encode(["error" => "Error DB"]));
+$conn = new mysqli("localhost", "root", "", "destinyinv");
 
 $instanceId = $_GET['instanceId'] ?? 0;
 
 $response = [
-    "info"  => [], // Aquí irá el Lore y Descripción
+    "info"  => [],
     "stats" => [],
     "perks" => []
 ];
@@ -20,7 +18,6 @@ if ($instanceId) {
                 JOIN definiciones_items def ON inst.id_def_item = def.id_def_item
                 LEFT JOIN tipos_energia tipo ON def.id_tipo_energia_default = tipo.id_tipo_energia
                 WHERE inst.id_instancia = $instanceId";
-    
     $resultInfo = $conn->query($sqlInfo);
     if($row = $resultInfo->fetch_assoc()) {
         $response["info"] = $row;
