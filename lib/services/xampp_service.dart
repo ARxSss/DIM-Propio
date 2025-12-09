@@ -4,9 +4,9 @@ import '../models/item_model.dart';
 
 class XamppService {
 
-  static const String _pcIp = '192.168.1.105'; 
+  static const String _pcIp = '127.0.0.1'; 
   
-  static const String _baseUrl = 'http://$_pcIp/destiny_api/get_inventory.php';
+  static const String _baseUrl = 'http://$_pcIp:8080/destiny_api/get_inventory.php';
 
   Future<List<DestinyItem>> getLocalInventory() async {
     try {

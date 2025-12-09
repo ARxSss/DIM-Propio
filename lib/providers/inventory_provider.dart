@@ -5,7 +5,7 @@ import '../models/item_model.dart';
 import '../models/character_model.dart';
 
 class InventoryProvider extends ChangeNotifier {
-  static const String _pcIp = '192.168.1.105'; 
+  static const String _pcIp = '127.0.0.1'; 
   static const String _apiBase = 'http://$_pcIp/destiny_api';
 
   List<DestinyItem> _items = [];
